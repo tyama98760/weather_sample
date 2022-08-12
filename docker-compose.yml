@@ -1,0 +1,25 @@
+version: '3.9'
+services:
+  app:
+    container_name: weather_front
+
+    build:
+      context: .
+    
+    image: weather-front
+      
+    restart: always
+
+    volumes:
+      - ./app:/app
+
+    command: npm start
+    
+    tty: true
+    
+    environment:
+      - CHOKIDAR_USEPOLLING=true
+  
+    ports:
+      - 3000:3000
+
