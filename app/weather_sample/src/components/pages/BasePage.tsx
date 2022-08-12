@@ -89,7 +89,7 @@ const BasePage = () => {
     data.map((val, i) => {
       let weatherData:WeatherData = {validDate:'', icon:'', description:'', maxTemp:'', minTemp:'',};
       if(i > 6) return;
-      weatherData.validDate = val.valid_date;
+      weatherData.validDate = formatDate(val.valid_date);
       weatherData.icon = process.env.REACT_APP_WEATHER_ICONS + val.weather.icon + '.png';
       weatherData.description = val.weather.description;
       weatherData.maxTemp = val.max_temp;
@@ -100,6 +100,18 @@ const BasePage = () => {
     setWeatherDataList(weatherDataTmpList);
 
   };
+
+  //日付のフォーマット
+  const formatDate = (validDate:string):string => {
+
+    const day = new Date(validDate);
+    const day_arr = ['(日)', '(月)', '(火)', '(水)', '(木)', '(金)', '(土)'];
+    const dayOfWeek:string = day_arr[day.getDay()];
+    const month = day.getMonth().toString();
+    const date = day.getDate().toString();
+
+    return  month + '月' + date +'日 '+ dayOfWeek;
+  }
 
   
   /******************
