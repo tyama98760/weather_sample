@@ -86,8 +86,9 @@ const BasePage = () => {
 
     let weatherDataTmpList:WeatherData[] = [];
     
-    data.map((val) => {
+    data.map((val, i) => {
       let weatherData:WeatherData = {validDate:'', icon:'', description:'', maxTemp:'', minTemp:'',};
+      if(i > 6) return;
       weatherData.validDate = val.valid_date;
       weatherData.icon = process.env.REACT_APP_WEATHER_ICONS + val.weather.icon + '.png';
       weatherData.description = val.weather.description;
