@@ -11,7 +11,7 @@ weather_app
 ├─ Dockerfile
 ├─ app
 │  └─ weather_sample
-│     ├─ .env
+│     ├─ .env //開発環境下では設置
 │     ├─ public 
 │     ├─ src
 │     │  ├─ App.css
@@ -39,6 +39,7 @@ weather_app
 ***
 ## 補足
 * Dockerから環境構築する場合はgit clone等でアプリケーション部分を設置下さい。
+* 開発環境で確認する場合は環境変数の追加(REACT_APP_のプレフィクスのもの)が必要。Weatherbitのアカウント登録でAPIキー等を取得する。
 * 以下URLよりビルドしたものを確認できます
   
   https://weather-sample.pages.dev/
