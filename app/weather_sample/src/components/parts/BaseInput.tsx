@@ -6,7 +6,7 @@ const BaseInput = ({ type, value, placeholder, onChange, className }: Props) => 
     border: "1px solid #ccc",
     padding: "5px 10px",
     borderRadius: "4px",
-    width:"170px",
+    width:"240px",
     height:"25px",
     marginRight: "10px"
   };

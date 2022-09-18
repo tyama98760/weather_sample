@@ -7,6 +7,7 @@ const SlidePrevButton = () => {
     color:"#464770",
     background:"#f0f0f5",
     padding:"4px 8px", 
+    cursor:"pointer",
     borderRadius:"5px"
   };
   const swiper = useSwiper();

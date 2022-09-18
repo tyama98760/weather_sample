@@ -3,6 +3,7 @@ import 'swiper/css';
 import SlideNextButton from "../parts/SlideNextButton";
 import SlidePrevButton from "../parts/SlidePrevButton";
 import { WeatherData } from '../../types/base';
+import MediaQuery from "react-responsive";
 
 const WeatherInfo:React.FC<{data: WeatherData[]}> = ({data}) => {
   
@@ -16,7 +17,8 @@ const WeatherInfo:React.FC<{data: WeatherData[]}> = ({data}) => {
     height:"110px",
     fontSize:"10px",
     background:"#9e9a98",
-    border: "solid 1px #9e9a98"
+    border: "solid 1px #9e9a98",
+    borderRadius:"25px"
   };
   const activeCard = {
     padding:"6px 18px 10px",
@@ -24,6 +26,8 @@ const WeatherInfo:React.FC<{data: WeatherData[]}> = ({data}) => {
     width:"150px",
     height:"110px",
     border: "solid 2px #000",
+    background:"#e8e8e8",
+    borderRadius:"25px"
   };
 
   /******************
@@ -35,10 +39,10 @@ const WeatherInfo:React.FC<{data: WeatherData[]}> = ({data}) => {
       centeredSlides={true}
     >
       {data.map((val, i) =>
-        <div >
+        <div>
           <SwiperSlide key={i}>
             {({ isActive }) => (
-              <div>
+              <div style={{ cursor: "pointer" }}>
                 <div className='date' style={{ marginTop: "10px", fontSize: "18px" }}><b>{val.validDate}</b></div>
                 <div className='card' style={isActive ? activeCard : defaultCard}>
                   <div className='icon' style={{ marginTop: "10px" }}>

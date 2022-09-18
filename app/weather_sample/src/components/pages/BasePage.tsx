@@ -4,6 +4,8 @@ import SearchButton from "../parts/SearchButton";
 import { WeatherData } from '../../types/base';
 import BaseInput from "../parts/BaseInput";
 import Headline1 from "../parts/Headline1";
+import Description from "../parts/Description";
+import Label from "../parts/Label";
 
 const BasePage = () => {
 
@@ -120,25 +122,27 @@ const BasePage = () => {
    return (
     <div className="BasePage">
 
-      <Headline1>お天気チェック</Headline1>
+      <Headline1>天気検索</Headline1>
 
-      <div>
-        <BaseInput type="text" value={latitude} placeholder="緯度" onChange={(e) => setLatitude(e.target.value)}/>
+      <Description>緯度と経度を入力して1週間の天気を確認できます。</Description>
+
+      <div style={{ marginTop: "30px" }}>
+        <Label>緯度</Label>
+        <BaseInput type="text" value={latitude} placeholder="20.00 ~ 46.00" onChange={(e) => setLatitude(e.target.value)}/>
       </div>
       <div style={{ marginTop: "10px" }} >
-        <BaseInput type="text" value={longitude} placeholder="経度" onChange={(e) => setLongitude(e.target.value)}/>
+        <Label>経度</Label>
+        <BaseInput type="text" value={longitude} placeholder="122.00 ~ 154.00" onChange={(e) => setLongitude(e.target.value)}/>
       </div>
 
       <div style={{textAlign: "center"}}>
         <SearchButton onClick={search}>検索</SearchButton>
       </div>
 
-      <div className='errorMessage' style={{color:"red",margin:"5px 0", whiteSpace: 'pre-line'}}>
+      <div className='errorMessage' style={{color:"#000",margin:"5px 0", whiteSpace: 'pre-line'}}>
         {errorMessage}
       </div>
-
       {weatherInfoFlag ? <WeatherInfo key="{weatherDataList}" data={weatherDataList}/> : <></>}
-      
     </div>
   );
 
